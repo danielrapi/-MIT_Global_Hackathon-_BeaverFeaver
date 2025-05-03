@@ -1,7 +1,6 @@
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 from anomalib.data import PredictDataset
-from anomalib import TaskType
 from anomalib.utils.post_processing import superimpose_anomaly_map
 
 from pathlib import Path
@@ -10,7 +9,6 @@ import csv
 import cv2
 import pickle
 import json
-import torch
 import numpy as np
 from skimage.segmentation import mark_boundaries
 
@@ -39,33 +37,37 @@ def generate_training_style_visualization(image, anomaly_map, pred_mask=None, no
     return cv2.cvtColor(heatmap_overlay, cv2.COLOR_RGB2BGR)
 
 
-def save_prediction_outputs(result, output_dir, image_index):
+def save_prediction_outputs(result, output_dir):
     os.makedirs(output_dir / "heatmaps", exist_ok=True)
     os.makedirs(output_dir / "masks", exist_ok=True)
     os.makedirs(output_dir / "pickles", exist_ok=True)
     os.makedirs(output_dir / "json", exist_ok=True)
 
+    # Extract original image filename (e.g., "000" from "000.png")
+    image_path = Path(result.image_path[0])
+    filename_stem = image_path.stem
+
     # CSV log
     with open(output_dir / "predictions.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([
-            image_index,
+            filename_stem,
             result.image_path[0],
-            float(result.pred_score),
-            int(result.pred_label)
+            float(result.pred_score.item()),
+            int(result.pred_label.item())
         ])
 
     # Pickle raw result
-    with open(output_dir / "pickles" / f"{image_index}_result.pkl", "wb") as f:
+    with open(output_dir / "pickles" / f"{filename_stem}_result.pkl", "wb") as f:
         pickle.dump(result, f)
 
     # JSON summary
     summary = {
         "image_path": result.image_path[0],
-        "pred_score": float(result.pred_score),
-        "pred_label": int(result.pred_label)
+        "pred_score": float(result.pred_score.item()),
+        "pred_label": int(result.pred_label.item())
     }
-    with open(output_dir / "json" / f"{image_index}_summary.json", "w") as f:
+    with open(output_dir / "json" / f"{filename_stem}_summary.json", "w") as f:
         json.dump(summary, f, indent=2)
 
     # Convert tensors to numpy arrays
@@ -74,25 +76,27 @@ def save_prediction_outputs(result, output_dir, image_index):
     anomaly_map = result.anomaly_map.squeeze().cpu().numpy()
     pred_mask = result.pred_mask.squeeze().cpu().numpy().astype(bool)
 
-    # 1. Save image + anomaly map overlay
+    # 1. Save heatmap overlay
     normalized_map = np.clip(1 - anomaly_map, 0, 1)
-
-    # Convert anomaly map to a heatmap
     heatmap = cv2.applyColorMap((normalized_map * 255).astype(np.uint8), cv2.COLORMAP_JET)
     overlay = cv2.addWeighted(image.copy(), 0.6, heatmap, 0.4, 0)
-    cv2.imwrite(str(output_dir / "heatmaps" / f"{image_index}_heatmap.png"), cv2.cvtColor(overlay, cv2.COLOR_RGB2BGR))
+    heatmap_path = output_dir / "heatmaps" / f"{filename_stem}_heatmap.png"
+    cv2.imwrite(str(heatmap_path), cv2.cvtColor(overlay, cv2.COLOR_RGB2BGR))
 
-    # 2. Save image + predicted mask (red boundaries)
+    # 2. Save mask with boundaries
     segmented = mark_boundaries(image.copy(), pred_mask, color=(1, 0, 0), mode="thick")
     segmented = (segmented * 255).astype(np.uint8)
-    cv2.imwrite(str(output_dir / "masks" / f"{image_index}_mask.png"), cv2.cvtColor(segmented, cv2.COLOR_RGB2BGR))
-
+    mask_path = output_dir / "masks" / f"{filename_stem}_mask.png"
+    cv2.imwrite(str(mask_path), cv2.cvtColor(segmented, cv2.COLOR_RGB2BGR))
 
 
 if __name__ == "__main__":
     engine = Engine()
 
-    dataset = PredictDataset(path=Path("datasets/drone/all_test"))
+    # Load dataset with specified image size
+    dataset = PredictDataset(path=Path("datasets/drone/all_test"), image_size=(256, 320))
+
+    # Load model and checkpoint
     checkpoint_path = "results/Patchcore/drone/latest/weights/lightning/model.ckpt"
     if not Path(checkpoint_path).exists():
         print(f"Checkpoint not found: {checkpoint_path}")
@@ -111,7 +115,7 @@ if __name__ == "__main__":
 
     output_dir = Path("inference_outputs")
     output_dir.mkdir(exist_ok=True)
-
     print(f"Saving results to {output_dir}")
-    for i, result in enumerate(results):
-        save_prediction_outputs(result, output_dir, image_index=f"image_{i}")
+
+    for result in results:
+        save_prediction_outputs(result, output_dir)

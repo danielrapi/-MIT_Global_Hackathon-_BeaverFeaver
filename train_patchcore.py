@@ -3,15 +3,14 @@ import multiprocessing
 from anomalib.models import Patchcore
 from anomalib.engine import Engine
 from anomalib.data import Folder
-from torchvision import transforms
 
 # === Dataset Setup ===
 # Create transforms for training
-train_transform = transforms.Compose([
-    transforms.Resize((256, 256)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # ImageNet normalization
-])
+# train_transform = transforms.Compose([
+#     transforms.Resize((256, 256)),
+#     transforms.ToTensor(),
+#     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # ImageNet normalization
+# ])
 
 # Force spawn method for macOS
 if __name__ == "__main__":
