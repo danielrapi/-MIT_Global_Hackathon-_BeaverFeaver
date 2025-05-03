@@ -17,6 +17,7 @@ async function loadJsonFile(id: string): Promise<RawDetection | null> {
 
 // Function to convert RawDetection to EnhancedDetection
 export function enhanceDetection(raw: RawDetection): EnhancedDetection {
+  console.log(raw)
   return {
     id: raw.id,
     anomalyScore: raw.pred_score,

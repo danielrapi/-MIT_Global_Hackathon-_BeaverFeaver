@@ -6,7 +6,7 @@ import shutil
 import uuid
 import os
 import base64
-from backend.process_pipeline import run_pipeline
+from process_pipeline import run_pipeline
 
 app = FastAPI(title="Anomaly Detection API")
 

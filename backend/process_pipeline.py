@@ -17,7 +17,8 @@ model = Patchcore(
     coreset_sampling_ratio=0.1,
     num_neighbors=9,
 )
-checkpoint_path = Path("results/Patchcore/drone/v25/weights/lightning/model.ckpt")
+checkpoint_path = Path("backend/patchcore/drone/v25/weights/lightning/model.ckpt")
+print(f"🔍 Loading checkpoint from {checkpoint_path}")
 
 def run_pipeline(image_path: Path, output_dir: str):
     """Process a single image through the anomaly detection pipeline."""
@@ -61,7 +62,7 @@ def run_pipeline(image_path: Path, output_dir: str):
             with open(json_path, "r") as f:
                 summary = json.load(f)
             summary = {"id": filename_stem, "latitude": lat, "longitude": lon, **summary}
-            print(label)
+
             if label == 1:
                 print(f"🧠 Annotating {filename_stem}_mask.png with LLM...")
                 annotation = annotate_picture(str(mask_path))
