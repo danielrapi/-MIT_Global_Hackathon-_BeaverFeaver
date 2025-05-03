@@ -1,3 +1,6 @@
 venv/
 .env
 _frontend/node_modules/
+backend/interaction/inference_outputs/*
+backend/interaction/uploads/*
+backend/patchcore/drone_testing/latest/images/*
