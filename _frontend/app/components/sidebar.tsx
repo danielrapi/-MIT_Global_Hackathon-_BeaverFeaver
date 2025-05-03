@@ -5,29 +5,57 @@ import { ScoreSlider } from "./score-slider"
 import { SearchBox } from "./search-box"
 import { DetectionList } from "./detection-list"
 import { UploadDataSection } from "./upload-data-section"
-import type { EnhancedDetection } from "@/app/data/dummy-data"
-import { vectorSearch, dummyDetections } from "@/app/data/dummy-data"
+import { Button } from "@/components/ui/button"
+import { RefreshCw, AlertCircle } from "lucide-react"
+import type { EnhancedDetection } from "@/app/data/types"
+import { searchByVectorSimilarity } from "@/app/data/vector-search"
 
 interface SidebarProps {
   onSelectDetection?: (detection: EnhancedDetection) => void
   onFilteredDetectionsChange?: (detections: EnhancedDetection[]) => void
+  onDataLoaded?: (data: EnhancedDetection[]) => void
 }
 
-export function Sidebar({ onSelectDetection, onFilteredDetectionsChange }: SidebarProps) {
+export function Sidebar({ onSelectDetection, onFilteredDetectionsChange, onDataLoaded }: SidebarProps) {
   const [minScore, setMinScore] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState<EnhancedDetection[]>([])
   const [isSearching, setIsSearching] = useState(false)
-  const [filteredDetections, setFilteredDetections] = useState<EnhancedDetection[]>(dummyDetections)
+  const [allDetections, setAllDetections] = useState<EnhancedDetection[]>([])
+  const [filteredDetections, setFilteredDetections] = useState<EnhancedDetection[]>([])
+  const [hasData, setHasData] = useState(false)
+
+  // Reset filters function
+  const resetFilters = () => {
+    setMinScore(0)
+    setSearchQuery("")
+    setFilteredDetections(allDetections)
+  }
+
+  // Handle data loading
+  const handleDataLoaded = (data: EnhancedDetection[]) => {
+    setAllDetections(data)
+    setFilteredDetections(data)
+    setHasData(data.length > 0)
+
+    if (onDataLoaded) {
+      onDataLoaded(data)
+    }
+
+    if (onFilteredDetectionsChange) {
+      onFilteredDetectionsChange(data)
+    }
+  }
 
   // Filter detections based on score and search query
   useEffect(() => {
+    if (!hasData) return
+
     // First filter by score
-    let filtered = dummyDetections.filter((detection) => detection.anomalyScore >= minScore)
+    let filtered = allDetections.filter((detection) => detection.anomalyScore >= minScore)
 
     // Then apply search if there's a query
     if (searchQuery.trim()) {
-      filtered = vectorSearch(searchQuery, filtered)
+      filtered = searchByVectorSimilarity(searchQuery, filtered, 3)
     }
 
     setFilteredDetections(filtered)
@@ -36,41 +64,61 @@ export function Sidebar({ onSelectDetection, onFilteredDetectionsChange }: Sideb
     if (onFilteredDetectionsChange) {
       onFilteredDetectionsChange(filtered)
     }
-  }, [minScore, searchQuery, searchResults, onFilteredDetectionsChange])
+  }, [minScore, searchQuery, allDetections, onFilteredDetectionsChange, hasData])
 
-  // Simulate vector search with a delay to mimic real-world behavior
+  // Simulate search with a delay to mimic real-world behavior
   useEffect(() => {
-    if (searchQuery.trim()) {
-      setIsSearching(true)
-      const timer = setTimeout(() => {
-        const results = vectorSearch(searchQuery, dummyDetections)
-        setSearchResults(results)
-        setIsSearching(false)
-      }, 300)
-      return () => clearTimeout(timer)
-    } else {
-      setSearchResults([])
+    if (!hasData || !searchQuery.trim()) {
+      return
     }
-  }, [searchQuery])
+
+    setIsSearching(true)
+    const timer = setTimeout(() => {
+      setIsSearching(false)
+    }, 300)
+
+    return () => clearTimeout(timer)
+  }, [searchQuery, hasData])
 
   return (
     <div className="w-80 border-r bg-background flex flex-col h-full">
       <div className="p-4 border-b">
-        <h2 className="text-lg font-medium tracking-tight mb-4">Filters</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-medium tracking-tight">Filters</h2>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={resetFilters}
+            className="flex items-center gap-1"
+            disabled={!hasData}
+          >
+            <RefreshCw className="h-3.5 w-3.5" />
+            Reset
+          </Button>
+        </div>
         <div className="space-y-4">
           <SearchBox
             value={searchQuery}
             onChange={setSearchQuery}
             isSearching={isSearching}
             placeholder="Search by keywords, tags..."
+            disabled={!hasData}
           />
-          <ScoreSlider value={minScore} onChange={setMinScore} />
+          <ScoreSlider value={minScore} onChange={setMinScore} disabled={!hasData} />
         </div>
       </div>
       <div className="flex-1 overflow-auto">
-        <DetectionList detections={filteredDetections} onSelectDetection={onSelectDetection} />
+        {hasData ? (
+          <DetectionList detections={filteredDetections} onSelectDetection={onSelectDetection} />
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full p-4 text-center text-muted-foreground">
+            <AlertCircle className="h-10 w-10 mb-2 opacity-20" />
+            <p>No data loaded</p>
+            <p className="text-sm mt-1">Click "Load Test Data" below to get started</p>
+          </div>
+        )}
       </div>
-      <UploadDataSection />
+      <UploadDataSection onDataLoaded={handleDataLoaded} />
     </div>
   )
 }

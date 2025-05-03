@@ -1,24 +1,57 @@
 "use client"
 
 import type React from "react"
+import type { EnhancedDetection } from "@/app/data/types"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronUp, ChevronDown, Upload, Database } from "lucide-react"
+import { ChevronUp, ChevronDown, Upload, Database, Loader2 } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { cn } from "@/lib/utils"
+import { loadTestData } from "@/app/data/test-data"
 
-export function UploadDataSection() {
+interface UploadDataSectionProps {
+  onDataLoaded?: (data: EnhancedDetection[]) => void
+}
+
+export function UploadDataSection({ onDataLoaded }: UploadDataSectionProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleLoadTestData = () => {
-    toast({
-      title: "Test data loaded",
-      description: "Sample anomaly detections have been loaded successfully.",
-    })
-    console.log("Loading test data...")
+  const handleLoadTestData = async () => {
+    setIsLoading(true)
+
+    try {
+      // Load the test data (with a small artificial delay for UX)
+      await new Promise((resolve) => setTimeout(resolve, 800))
+      const data = await loadTestData()
+
+      if (data.length === 0) {
+        throw new Error("No data loaded")
+      }
+
+      if (onDataLoaded) {
+        onDataLoaded(data)
+      }
+
+      toast({
+        title: "Test data loaded",
+        description: `${data.length} sample anomaly detections have been loaded successfully.`,
+      })
+
+      console.log("Test data loaded:", data)
+    } catch (error) {
+      console.error("Error loading test data:", error)
+      toast({
+        title: "Error loading test data",
+        description: error instanceof Error ? error.message : "An error occurred while loading test data.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -112,9 +145,19 @@ export function UploadDataSection() {
             variant="outline"
             className="w-full flex items-center justify-center text-sm"
             onClick={handleLoadTestData}
+            disabled={isLoading}
           >
-            <Database className="mr-2 h-4 w-4" />
-            Load Test Data
+            {isLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Loading...
+              </>
+            ) : (
+              <>
+                <Database className="mr-2 h-4 w-4" />
+                Load Test Data
+              </>
+            )}
           </Button>
         </div>
       </div>

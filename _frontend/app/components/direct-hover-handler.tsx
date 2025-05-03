@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { useMap } from "react-leaflet"
 import L from "leaflet"
-import type { EnhancedDetection } from "@/app/data/dummy-data"
+import type { EnhancedDetection } from "@/app/data/types"
 
 interface DirectHoverHandlerProps {
   detections: EnhancedDetection[]

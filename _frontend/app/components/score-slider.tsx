@@ -6,11 +6,12 @@ import { Label } from "@/components/ui/label"
 interface ScoreSliderProps {
   value: number
   onChange: (value: number) => void
+  disabled?: boolean
 }
 
-export function ScoreSlider({ value, onChange }: ScoreSliderProps) {
+export function ScoreSlider({ value, onChange, disabled = false }: ScoreSliderProps) {
   return (
-    <div className="space-y-2">
+    <div className={`space-y-2 ${disabled ? "opacity-50" : ""}`}>
       <div className="flex items-center justify-between">
         <Label htmlFor="score-filter" className="text-sm font-medium">
           Anomaly Score Filter
@@ -24,6 +25,7 @@ export function ScoreSlider({ value, onChange }: ScoreSliderProps) {
         step={0.01}
         value={[value]}
         onValueChange={(values) => onChange(values[0])}
+        disabled={disabled}
       />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>0</span>

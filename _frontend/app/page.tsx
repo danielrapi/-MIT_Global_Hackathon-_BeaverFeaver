@@ -5,17 +5,18 @@ import { MapContainer } from "./components/map-container"
 import { Sidebar } from "./components/sidebar"
 import { Toaster } from "@/components/ui/toaster"
 import { useTheme } from "next-themes"
-import type { EnhancedDetection } from "./data/dummy-data"
+import type { EnhancedDetection } from "./data/types"
 import { LocationDetailCard } from "./components/location-detail-card"
 import { ThemeToggle } from "./components/theme-toggle"
-import { dummyDetections } from "./data/dummy-data"
 
 export default function Home() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [selectedDetection, setSelectedDetection] = useState<EnhancedDetection | null>(null)
   const [isDetailOpen, setIsDetailOpen] = useState(false)
-  const [filteredDetections, setFilteredDetections] = useState<EnhancedDetection[]>(dummyDetections)
+  const [filteredDetections, setFilteredDetections] = useState<EnhancedDetection[]>([])
+  const [allDetections, setAllDetections] = useState<EnhancedDetection[]>([])
+  const [dataJustLoaded, setDataJustLoaded] = useState(false)
 
   // After mounting, we can access the theme
   useEffect(() => {
@@ -25,6 +26,16 @@ export default function Home() {
   const handleSelectDetection = (detection: EnhancedDetection) => {
     setSelectedDetection(detection)
     setIsDetailOpen(true)
+  }
+
+  const handleDataLoaded = (data: EnhancedDetection[]) => {
+    setAllDetections(data)
+    setFilteredDetections(data)
+    setDataJustLoaded(true)
+  }
+
+  const handleMapFitted = () => {
+    setDataJustLoaded(false)
   }
 
   return (
@@ -46,8 +57,17 @@ export default function Home() {
         </div>
       </nav>
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar onSelectDetection={handleSelectDetection} onFilteredDetectionsChange={setFilteredDetections} />
-        <MapContainer filteredDetections={filteredDetections} allDetections={dummyDetections} />
+        <Sidebar
+          onSelectDetection={handleSelectDetection}
+          onFilteredDetectionsChange={setFilteredDetections}
+          onDataLoaded={handleDataLoaded}
+        />
+        <MapContainer
+          filteredDetections={filteredDetections}
+          allDetections={allDetections}
+          dataJustLoaded={dataJustLoaded}
+          onMapFitted={handleMapFitted}
+        />
       </div>
       <LocationDetailCard detection={selectedDetection} isOpen={isDetailOpen} onClose={() => setIsDetailOpen(false)} />
       <Toaster />

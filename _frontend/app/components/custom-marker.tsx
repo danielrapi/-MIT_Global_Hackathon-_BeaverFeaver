@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { CircleMarker } from "react-leaflet"
-import type { EnhancedDetection } from "@/app/data/dummy-data"
+import type { EnhancedDetection } from "@/app/data/types"
 
 interface CustomMarkerProps {
   detection: EnhancedDetection

@@ -14,7 +14,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ThermoTrace",
   description: "Visualize geotagged image anomalies",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({

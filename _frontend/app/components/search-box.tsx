@@ -8,6 +8,7 @@ interface SearchBoxProps {
   onChange: (value: string) => void
   isSearching?: boolean
   placeholder?: string
+  disabled?: boolean
 }
 
 export function SearchBox({
@@ -15,6 +16,7 @@ export function SearchBox({
   onChange,
   isSearching = false,
   placeholder = "Search detections...",
+  disabled = false,
 }: SearchBoxProps) {
   return (
     <div className="relative">
@@ -28,6 +30,7 @@ export function SearchBox({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="pl-8 text-sm"
+        disabled={disabled}
       />
     </div>
   )

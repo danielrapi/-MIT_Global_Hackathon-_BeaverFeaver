@@ -4,7 +4,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { MapPin } from "lucide-react"
-import type { EnhancedDetection } from "@/app/data/dummy-data"
+import type { EnhancedDetection } from "@/app/data/types"
+import { getImagePaths } from "@/app/data/test-data"
 
 interface DetectionListProps {
   detections: EnhancedDetection[]
@@ -12,12 +13,15 @@ interface DetectionListProps {
 }
 
 export function DetectionList({ detections, onSelectDetection }: DetectionListProps) {
+  // Sort detections by anomaly score in descending order
+  const sortedDetections = [...detections].sort((a, b) => b.anomalyScore - a.anomalyScore)
+
   return (
     <div className="space-y-4 p-4">
-      {detections.length === 0 ? (
+      {sortedDetections.length === 0 ? (
         <p className="text-center text-muted-foreground py-8 text-sm">No detections found</p>
       ) : (
-        detections.map((detection) => (
+        sortedDetections.map((detection) => (
           <Card
             key={detection.id}
             className="overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
@@ -25,7 +29,7 @@ export function DetectionList({ detections, onSelectDetection }: DetectionListPr
           >
             <div className="relative h-32">
               <Image
-                src={detection.imageUrl || "/placeholder.svg"}
+                src={getImagePaths(detection).normal || "/placeholder.svg"}
                 alt={`Detection ${detection.id}`}
                 fill
                 className="object-cover"
@@ -36,7 +40,7 @@ export function DetectionList({ detections, onSelectDetection }: DetectionListPr
                 <h3 className="font-medium text-sm tracking-tight">Detection #{detection.id}</h3>
                 <Badge
                   variant={
-                    detection.anomalyScore > 0.8 ? "destructive" : detection.anomalyScore > 0.5 ? "default" : "outline"
+                    detection.hasAnomaly ? "destructive" : "default"
                   }
                   className="text-xs"
                 >

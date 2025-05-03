@@ -1,12 +1,12 @@
 "use client"
 
-import type { EnhancedDetection } from "@/app/data/dummy-data"
+import type { EnhancedDetection } from "@/app/data/types"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { AlertTriangle, MapPin, Calendar } from "lucide-react"
-import { getImagePaths } from "@/app/data/dummy-data"
+import { getImagePaths } from "@/app/data/test-data"
 
 interface HoverPreviewProps {
   detection: EnhancedDetection
@@ -24,7 +24,7 @@ export function HoverPreview({ detection }: HoverPreviewProps) {
             src={imagePaths.normal || "/placeholder.svg"}
             alt="Anomaly preview"
             fill
-            className="object-cover"
+            className="object-contain"
             priority
           />
           {hasAnomaly && (
@@ -37,7 +37,6 @@ export function HoverPreview({ detection }: HoverPreviewProps) {
         <CardContent className="p-3 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-medium">Detection #{detection.id}</h3>
-           
           </div>
 
           <div className="space-y-1">

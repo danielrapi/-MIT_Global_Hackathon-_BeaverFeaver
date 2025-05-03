@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, CircleMarker, useMap, useMapEvents } from "rea
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "./map.css"
-import type { EnhancedDetection } from "@/app/data/dummy-data"
+import type { EnhancedDetection } from "@/app/data/types"
 import type { MapLayout, MarkerPosition } from "./map-container"
 
 // Component to handle tile layer changes
@@ -74,7 +74,7 @@ function MarkerWithHover({
 
   return (
     <>
-      {/* Pulsing outer circle */}
+      {/* Pulsing outer circle }
       <CircleMarker
         center={detection.coordinates as [number, number]}
         radius={16}
@@ -117,12 +117,35 @@ function MapEventHandler({ onMapMove }: { onMapMove: () => void }) {
   return null
 }
 
+// Component to fit map bounds to all markers
+function FitBoundsToMarkers({ detections, shouldFit }: { detections: EnhancedDetection[]; shouldFit: boolean }) {
+  const map = useMap()
+
+  useEffect(() => {
+    if (shouldFit && detections.length > 0) {
+      // Create bounds object
+      const bounds = new L.LatLngBounds(
+        detections.map((detection) => [detection.coordinates[0], detection.coordinates[1]]),
+      )
+
+      // Fit the map to these bounds with some padding
+      map.fitBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 13, // Limit zoom level to avoid zooming in too much for single markers
+      })
+    }
+  }, [detections, shouldFit, map])
+
+  return null
+}
+
 interface LeafletMapProps {
   allDetections: EnhancedDetection[]
   filteredDetections: EnhancedDetection[]
   onMarkerHover: (markerPosition: MarkerPosition | null) => void
   onMarkerClick: (detection: EnhancedDetection) => void
   mapLayout: MapLayout
+  shouldFitBounds: boolean
 }
 
 export function LeafletMap({
@@ -131,6 +154,7 @@ export function LeafletMap({
   onMarkerHover,
   onMarkerClick,
   mapLayout,
+  shouldFitBounds,
 }: LeafletMapProps) {
   const mapRef = useRef<L.Map | null>(null)
   const [isClient, setIsClient] = useState(false)
@@ -193,6 +217,7 @@ export function LeafletMap({
     >
       <TileLayerWithLayout mapLayout={mapLayout} />
       <MapEventHandler onMapMove={handleMapMove} />
+      <FitBoundsToMarkers detections={allDetections} shouldFit={shouldFitBounds} />
 
       {allDetections.map((detection) => (
         <MarkerWithHover
