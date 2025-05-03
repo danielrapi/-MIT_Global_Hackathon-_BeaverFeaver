@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "global_mit_hackathon",
+			"path": ".."
+		},
+		{
+			"name": "anomaly-map",
+			"path": "../../../../Downloads/anomaly-map"
+		}
+	],
+	"settings": {}
+}

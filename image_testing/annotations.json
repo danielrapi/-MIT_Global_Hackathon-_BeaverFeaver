@@ -1,0 +1,1460 @@
+{
+  "022_mask.png": {
+    "scene_description": "The image shows a distinct, large thermally active area likely representing a vehicle near the center-left with low thermal activity surrounding it. Vegetation is visible with varying thermal intensities.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.05,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.95,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Large, distinct, and rectangular-shaped thermal signature with clear temperature contrast against the background",
+        "anomaly_reasoning": "Shape and size are consistent with a vehicle viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "037_mask.png": {
+    "scene_description": "One small, warm anomaly near bottom-right corner. Several elongated and cooler shapes intersecting the area, with dispersed cooler patches throughout likely indicating surrounding foliage or terrain irregularities.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "logs",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.2,
+          "logs": 0.5,
+          "debris": 0.3,
+          "vehicle": 0.1,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, somewhat vertically-oriented thermal signature with modest contrast against background",
+        "anomaly_reasoning": "Thermal intensity and orientation might indicate a vertical object, possibly a person or vertical structure like logs or fencing"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "001_mask.png": {
+    "scene_description": "Single distinct warm signature near the left of center, with low thermal activity elsewhere across the image.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "left-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.8,
+          "animal": 0.2,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Elongated, vertically-oriented thermal signature with significant contrast against the background.",
+        "anomaly_reasoning": "Thermal intensity and elongated shape suggest the presence of a standing or lying person, possibly viewed from above."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "flat"
+  },
+  "006_mask.png": {
+    "scene_description": "Several uniform, cool signatures scattered throughout the image, with a distinct warm anomaly in the bottom-right corner.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "vehicle",
+          "tree",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.65,
+          "animal": 0.4,
+          "vehicle": 0.15,
+          "tree": 0.1,
+          "debris": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Compact, vertically-oriented warm signature with strong contrast against cooler surroundings",
+        "anomaly_reasoning": "The thermal intensity and shape suggest a possibly standing or crouching human or animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "013_mask.png": {
+    "scene_description": "Multiple heat signatures located along a pathway and clustered areas on either side. The largest thermal contrast is on the left and right with potential objects having elongated forms.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "vehicle",
+          "tree",
+          "logs",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.4,
+          "vehicle": 0.7,
+          "tree": 0.2,
+          "logs": 0.15,
+          "debris": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Large elongated thermal signature with multiple small hot spots",
+        "anomaly_reasoning": "Shape and size suggest a vehicle, potential presence of animals or humans nearby"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.5,
+          "animal": 0.3,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.45,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Clustered elongated warm signatures with uniform temperature",
+        "anomaly_reasoning": "Possibly a stationary vehicle, potential presence of logs or persons"
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "debris",
+          "logs",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.55,
+          "animal": 0.25,
+          "debris": 0.15,
+          "logs": 0.2,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Small high-contrast thermal spot",
+        "anomaly_reasoning": "Size and intensity suggest potential for a crouched person or small animal"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "014_mask.png": {
+    "scene_description": "Several distinct thermal areas with varying intensities; one prominent warm signature near bottom-left adjacent to cooler linear structures potentially resembling pathways or clearings.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.8,
+          "animal": 0.4,
+          "logs": 0.15,
+          "debris": 0.05,
+          "vehicle": 0.1,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Vertically narrow warm signature with strong contrast against surrounding cold areas and placed near linear cool features.",
+        "anomaly_reasoning": "Shape and temperature contrast are suggestive of a standing human observed from above."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "041_mask.png": {
+    "scene_description": "Predominant area is a uniform thermal texture, likely vegetation, with one small, brighter anomaly near the bottom-left corner.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.5,
+          "logs": 0.3,
+          "debris": 0.2,
+          "vehicle": 0.15,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Small, slightly elongated warm signature with prominent thermal contrast against cooler surroundings.",
+        "anomaly_reasoning": "The pattern and thermal intensity suggest a possible living being such as a standing or prone person or animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "024_mask.png": {
+    "scene_description": "One large, rectangular warm signature in the bottom-left, suggesting a vehicle. Sparse thermal activity elsewhere in the image.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "vehicle",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "vehicle": 0.85,
+          "debris": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Large, rectangular shape with strong thermal contrast against background.",
+        "anomaly_reasoning": "Shape and thermal signature consistent with a vehicle."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "023_mask.png": {
+    "scene_description": "One large, elongated warm signature near the bottom-left, with some scattered lower-intensity areas towards the edges. Large thermal signature that is consistent with a vehicle.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "vehicle",
+          "person",
+          "animal",
+          "debris"
+        ],
+        "object_confidences": {
+          "vehicle": 0.9,
+          "person": 0.35,
+          "animal": 0.2,
+          "logs": 0.1,
+          "debris": 0.4,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Large, elongated thermal signature with high contrast, possible smaller shapes nearby.",
+        "anomaly_reasoning": "Distinct thermal signature pattern suggests a vehicle, with surrounding areas possibly indicating other objects or smaller debris."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "040_mask.png": {
+    "scene_description": "The image shows a road crossing diagonally from bottom-left to top-right. There are two primary anomalies, one near the top-center and another at the far-right. Vegetation is sparse, with low thermal signatures indicating cooler areas.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.2,
+          "logs": 0.15,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.15
+        },
+        "notable_features": "Small, rounded thermal signature with moderate contrast",
+        "anomaly_reasoning": "The thermal shape and size suggest a small animal or logs."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "far-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.1,
+          "animal": 0.15,
+          "logs": 0.5,
+          "debris": 0.25,
+          "vehicle": 0.2,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Elongated, moderately warm signature aligned parallel to road",
+        "anomaly_reasoning": "The elongated shape and position near the road could indicate logs or a vehicle."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest/mountain/flat"
+  },
+  "015_mask.png": {
+    "scene_description": "A large elongated warm signature on the right side with several smaller warm signatures scattered across the image. The surroundings consist of low thermal activity, likely indicating vegetation.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.52,
+          "logs": 0.25,
+          "debris": 0.1,
+          "vehicle": 0.3,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.4,
+          "logs": 0.25,
+          "debris": 0.3,
+          "vehicle": 0.1,
+          "tree": 0.2,
+          "other": 0.05
+        },
+        "notable_features": "Small and rounded with moderate thermal intensity",
+        "anomaly_reasoning": "Could indicate a small animal or debris based on size and temperature"
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.45,
+          "logs": 0.3,
+          "debris": 0.2,
+          "vehicle": 0.1,
+          "tree": 0.25,
+          "other": 0.1
+        },
+        "notable_features": "Irregular shape with moderate thermal intensity",
+        "anomaly_reasoning": "Possible larger animal or irregularly shaped debris due to thermal pattern"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "007_mask.png": {
+    "scene_description": "The image shows a dense, cool background indicative of vegetation, with one prominently warm, elongated shape in the bottom-right region.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.2,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "018_mask.png": {
+    "scene_description": "An elongated warm signature is visible top-right of the image. The rest of the scene shows uniform low thermal activity typical of surrounding vegetation.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "debris",
+          "logs",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.55,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Small, elongated thermal signature distinctly warmer than its surroundings.",
+        "anomaly_reasoning": "Thermal intensity and elongated shape could plausibly match a crouched human or an animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "029_mask.png": {
+    "scene_description": "The image shows multiple parallel elongated shapes with high thermal signatures on the right side, likely indicating artificial structures. The left side has mixed temperature zones indicating natural terrain with sporadic warm spots.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.1,
+          "animal": 0.15,
+          "logs": 0.3,
+          "debris": 0.2,
+          "vehicle": 0.4,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Multiple, closely spaced warm signatures with consistent shape and spacing, oriented horizontally.",
+        "anomaly_reasoning": "The regularity and temperature contrast suggest possible vehicles or structures, but isolated warmer spots could indicate animals or people."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "mixed terrain"
+  },
+  "019_mask.png": {
+    "scene_description": "One small, distinct thermal signature near the center-right, surrounded by low thermal activity in a densely covered area.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.7,
+          "animal": 0.4,
+          "logs": 0.2,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.15,
+          "other": 0.1
+        },
+        "notable_features": "Small, horizontally-oriented thermal signature with moderate contrast against background",
+        "anomaly_reasoning": "The thermal signature size and shape are consistent with a lying person or medium-sized animal observed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "028_mask.png": {
+    "scene_description": "Sparse thermal signatures primarily in the periphery with a notable concentrated anomaly in the bottom-right indicating potential human or animal presence.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.52,
+          "logs": 0.25,
+          "debris": 0.1,
+          "vehicle": 0.3,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "009_mask.png": {
+    "scene_description": "Dense canopy with cooler thermal signatures, indicating potentially forested area. One small warm signature noted near edge.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.5,
+          "logs": 0.2,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.3,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with distinct contrast against shaded surroundings",
+        "anomaly_reasoning": "The shape and thermal intensity may correspond to a standing person or a small animal"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "038_mask.png": {
+    "scene_description": "Several linear thermal signatures suggestive of logs or debris, with a mixture of higher and lower thermal intensities. The majority of the image displays uniform thermal characteristics consistent with a natural landscape, probable forest with rolling terrain.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.15,
+          "animal": 0.1,
+          "logs": 0.7,
+          "debris": 0.4,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.2
+        },
+        "notable_features": "Clustered linear thermal signatures with alternating warm and cool patterns.",
+        "anomaly_reasoning": "The regularity and orientation of the linear shapes are consistent with natural or man-made objects like logs or structured debris."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest/mountain/flat"
+  },
+  "008_mask.png": {
+    "scene_description": "Two clusters of elongated, aligned warm signatures on the left side and top-right of the image, suggesting stacked objects. One small, isolated warm signature with a clear contrast at bottom-left of the larger anomaly.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.2,
+          "logs": 0.1,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with a clear contrast against the background.",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "logs": 0.9,
+          "debris": 0.5,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Cluster of elongated warm signatures aligned in parallel, possibly stacked.",
+        "anomaly_reasoning": "Consistent with stacked logs or similar objects due to shape and alignment."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "021_mask.png": {
+    "scene_description": "Large vehicle-like shape near the left side with moderate thermal intensity. Small warm signature near the vehicle.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.3,
+          "logs": 0.05,
+          "debris": 0.1,
+          "vehicle": 0.9,
+          "tree": 0.01,
+          "other": 0.05
+        },
+        "notable_features": "Large thermal signature resembling vehicle, small warm shape nearby",
+        "anomaly_reasoning": "The size and shape are consistent with a vehicle, small signature could be a person or animal near it."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "026_mask.png": {
+    "scene_description": "One distinct small thermal anomaly near the bottom-right, light warm signature with low thermal activity dominating the surrounding area.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.52,
+          "logs": 0.25,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "010_mask.png": {
+    "scene_description": "Two notable thermal anomalies present in the image, one concentrated and warm towards the center-bottom, and another smaller one near top-center. Background shows mixed thermal signatures likely indicative of natural terrain.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-bottom",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.5,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.1,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Elongated, high contrast thermal signature with distinct separation from surrounding area",
+        "anomaly_reasoning": "The shape and intensity may indicate a standing or crouched person, characterized by a vertically oriented thermal pattern."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.5,
+          "animal": 0.4,
+          "logs": 0.25,
+          "debris": 0.2,
+          "vehicle": 0.1,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Compact thermal spot with moderate contrast against background.",
+        "anomaly_reasoning": "Concentrated thermal intensity consistent with a small animal or crouched person."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest/mountain"
+  },
+  "017_mask.png": {
+    "scene_description": "Clusters of elongated shapes consistent with logs or trees dominate the image, varying thermal intensities suggest different materials or levels of exposure.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.1,
+          "animal": 0.05,
+          "logs": 0.6,
+          "debris": 0.25,
+          "vehicle": 0.1,
+          "tree": 0.65,
+          "other": 0.05
+        },
+        "notable_features": "Horizontal, elongated structures with moderate thermal contrast",
+        "anomaly_reasoning": "The shape and length are indicative of logs or trees, based on the orientation and thermal distribution."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.05,
+          "animal": 0.05,
+          "logs": 0.45,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.55,
+          "other": 0.05
+        },
+        "notable_features": "Clustered, smaller structures with consistent thermal signatures",
+        "anomaly_reasoning": "Dense arrangement and similar thermal signatures of elongated shapes suggest logs or thin trees."
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "center-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.55,
+          "animal": 0.4,
+          "logs": 0.15,
+          "debris": 0.1,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Small, vertically-focused thermal signature with high contrast",
+        "anomaly_reasoning": "The shape and thermal contrast suggest a standing person or animal, possibly obscured by surrounding objects."
+      },
+      {
+        "box_id": 4,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.1,
+          "animal": 0.05,
+          "logs": 0.7,
+          "debris": 0.3,
+          "vehicle": 0.15,
+          "tree": 0.25,
+          "other": 0.05
+        },
+        "notable_features": "Array of parallel structures with moderate thermal variation",
+        "anomaly_reasoning": "The organized parallel nature points towards cut logs or manufactured materials like fencing."
+      },
+      {
+        "box_id": 5,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.15,
+          "animal": 0.1,
+          "logs": 0.75,
+          "debris": 0.2,
+          "vehicle": 0.05,
+          "tree": 0.25,
+          "other": 0.05
+        },
+        "notable_features": "Cluster of aligned vertical structures",
+        "anomaly_reasoning": "Strong probability of being logs based on alignment and grouping patterns."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "002_mask.png": {
+    "scene_description": "Single, elongated warm signature near center with strong thermal contrast. Surrounding area shows lower thermal activity.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.8,
+          "animal": 0.4,
+          "logs": 0.1,
+          "debris": 0.15,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Long, narrow, and bright thermal signature suggesting potential standing or prone position.",
+        "anomaly_reasoning": "The outlined shape and thermal characteristics strongly suggest the presence of a human, due to narrow width and bright thermal outline indicative of human heat emissions."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "flat"
+  },
+  "005_mask.png": {
+    "scene_description": "One small, vertically-oriented warm signature near bottom-center, surrounded by a cooler, homogeneous background indicating low thermal activity.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.2,
+          "logs": 0.1,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "flat"
+  },
+  "027_mask.png": {
+    "scene_description": "One small, highly contrasted thermal signature near the center-right amidst low thermal activity, indicating a background of uniform cooler temperature.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.4,
+          "logs": 0.2,
+          "debris": 0.1,
+          "vehicle": 0.1,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, rounded thermal signature with clear contrast against surrounding cooler environment",
+        "anomaly_reasoning": "Shape and intense thermal contrast suggest a possible living or mechanical object"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "020_mask.png": {
+    "scene_description": "One small, warm signature near bottom-right with low thermal activity elsewhere.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.7,
+          "animal": 0.4,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Small, horizontally-oriented thermal signature with moderate contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape could belong to a prone person or small animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "004_mask.png": {
+    "scene_description": "One strongly contrasted, narrow and vertically oriented thermal signature in the top-left corner. Low thermal activity throughout the rest of the area.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.85,
+          "animal": 0.4,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Strongly contrasted, narrow, vertically-oriented thermal signature.",
+        "anomaly_reasoning": "The shape and high thermal intensity are consistent with a standing person, viewed from above."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "003_mask.png": {
+    "scene_description": "One vertically elongated warm signature near top-left with low thermal intensity elsewhere in the image.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.8,
+          "animal": 0.55,
+          "logs": 0.2,
+          "debris": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Elongated vertical thermal signature with distinct contrast against background.",
+        "anomaly_reasoning": "Shape and thermal contrast are consistent with a standing person or animal viewed from above."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "016_mask.png": {
+    "scene_description": "Two main anomalies are present: one elongated shape and one compact area. The elongated shape has moderate thermal intensity, possibly representing logs or a person. The compact area is highly contrasted.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-left",
+        "possible_objects": [
+          "person",
+          "logs",
+          "vehicle",
+          "animal",
+          "debris",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "logs": 0.7,
+          "vehicle": 0.2,
+          "animal": 0.15,
+          "debris": 0.1,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Elongated shape with moderate thermal intensity",
+        "anomaly_reasoning": "Shape is consistent with stacked logs or a person lying down"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "animal",
+          "person",
+          "tree",
+          "debris",
+          "logs",
+          "other"
+        ],
+        "object_confidences": {
+          "animal": 0.6,
+          "person": 0.3,
+          "tree": 0.5,
+          "debris": 0.2,
+          "logs": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Compact, high thermal contrast area",
+        "anomaly_reasoning": "Thermal intensity could indicate a small animal or a curled person"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  }
+}
