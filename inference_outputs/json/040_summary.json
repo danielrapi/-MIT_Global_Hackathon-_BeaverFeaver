@@ -1,5 +1,59 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/040.png",
+  "id": "040",
   "pred_score": 0.6260793805122375,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One large elongated thermal signature in top-center indicative of a road or path. Two smaller thermal anomalies are present near the edges of the road, appearing as distinct spots with moderate intensity.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "vehicle",
+          "debris"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.2,
+          "vehicle": 0.6,
+          "debris": 0.15
+        },
+        "notable_features": "Large elongated shape parallel to road with strong thermal intensity",
+        "anomaly_reasoning": "Thermal intensity and elongation is consistent with a vehicle, potentially stationary or moving along the road"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.35,
+          "logs": 0.25,
+          "debris": 0.2
+        },
+        "notable_features": "Small, rounded thermal signature isolated from other objects",
+        "anomaly_reasoning": "Thermal shape and isolation suggest a potential crouched person or small animal"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "latitude": 47.900293101199416,
+  "longitude": 7.814105425413504
 }

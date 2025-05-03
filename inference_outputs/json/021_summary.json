@@ -1,5 +1,43 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/021.png",
+  "id": "021",
   "pred_score": 0.9752158522605896,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One large, elongated thermal signature in center-left, resembling a vehicle. Small, warm signature next to it, and low thermal activity in surrounding areas.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "vehicle",
+          "debris",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.2,
+          "vehicle": 0.9,
+          "debris": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Large elongated shape with smaller warm shape nearby, high thermal contrast against surroundings.",
+        "anomaly_reasoning": "Shape and thermal intensity strongly suggest a vehicle with a nearby smaller warm object potentially being a person or animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "road"
+  },
+  "latitude": 47.8920689925074,
+  "longitude": 7.811746144565805
 }

@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/004.png",
+  "id": "004",
   "pred_score": 0.8231543302536011,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One elongated warm signature in the top-left area, low thermal activity elsewhere with uniform cold background.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.85,
+          "animal": 0.45,
+          "logs": 0.15,
+          "debris": 0.05,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Elongated, vertically-oriented thermal signature with strong contrast against the cooler background.",
+        "anomaly_reasoning": "Thermal intensity and elongated shape are consistent with a standing person viewed from above."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.892156928646656,
+  "longitude": 7.800639928885624
 }

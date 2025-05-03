@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/022.png",
+  "id": "022",
   "pred_score": 0.9023640155792236,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One distinct elongated warm signature near the top-left corresponding to a vehicle. Surrounding areas show irregular thermal patterns, likely associated with natural elements.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "vehicle",
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "vehicle": 0.95,
+          "person": 0.2,
+          "animal": 0.1,
+          "logs": 0.05,
+          "debris": 0.05,
+          "tree": 0.02,
+          "other": 0.01
+        },
+        "notable_features": "Elongated and clearly defined thermal signature with contrasting edges",
+        "anomaly_reasoning": "Thermal shape and intensity strongly match that of a vehicle, viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest/mountain/flat"
+  },
+  "latitude": 47.90581209476,
+  "longitude": 7.803382425322164
 }

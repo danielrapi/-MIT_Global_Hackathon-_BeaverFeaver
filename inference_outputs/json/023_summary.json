@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/023.png",
+  "id": "023",
   "pred_score": 1.0,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One large, elongated, and distinctly warm object located near the left side of the image. Surrounding areas show less thermal activity.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.2,
+          "logs": 0.6,
+          "debris": 0.1,
+          "vehicle": 0.8,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Large, elongated object with a strong thermal signature, oriented horizontally",
+        "anomaly_reasoning": "Thermal intensity and shape suggest a vehicle, possibly with elongated features like logs or equipment stacked on top"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "latitude": 47.88898807242483,
+  "longitude": 7.805050446784985
 }

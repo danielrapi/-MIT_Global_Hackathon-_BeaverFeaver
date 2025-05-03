@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/024.png",
+  "id": "024",
   "pred_score": 1.0,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "One predominant elongated hot signature in bottom-left corner, moderate thermal activity elsewhere suggesting rugged terrain. No distinctive vertical shapes indicative of humans.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.1,
+          "logs": 0.1,
+          "debris": 0.15,
+          "vehicle": 0.85,
+          "tree": 0.05,
+          "other": 0.05
+        },
+        "notable_features": "Large, horizontal, elongated thermal signature with consistent heat distribution",
+        "anomaly_reasoning": "Thermal shape and size are most consistent with a vehicle, lacking vertical features typical of a person or animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "mountain"
+  },
+  "latitude": 47.89430456483253,
+  "longitude": 7.784741832549745
 }

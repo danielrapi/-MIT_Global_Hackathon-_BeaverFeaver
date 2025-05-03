@@ -1,5 +1,43 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/027.png",
+  "id": "027",
   "pred_score": 0.6741049885749817,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Mostly uniform thermal signatures with one prominent warm area found at the top-center. The area features a concentrated, circular thermal signature strongly contrasting with the cooler surroundings.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.45,
+          "logs": 0.1,
+          "debris": 0.05,
+          "vehicle": 0.05,
+          "tree": 0.05,
+          "other": 0.2
+        },
+        "notable_features": "High-temperature, circular thermal signature with strong contrast to the surrounding area",
+        "anomaly_reasoning": "The shape and thermal intensity may indicate a crouched person or a small animal."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.908109409366155,
+  "longitude": 7.785103896738923
 }

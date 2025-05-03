@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/029.png",
+  "id": "029",
   "pred_score": 0.8388193249702454,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "The image shows a linear arrangement of objects in the right section with higher thermal emission. These objects have parallel alignment, suggesting structured placement. The rest of the scene shows lower thermal activity, indicating open space or ground.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.15,
+          "logs": 0.6,
+          "debris": 0.25,
+          "vehicle": 0.4,
+          "tree": 0.1,
+          "other": 0.3
+        },
+        "notable_features": "Series of elongated, parallel thermal signatures with higher intensity",
+        "anomaly_reasoning": "Structured alignment and strong thermal signatures suggest potential arranged objects, like logs or vehicles."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "flat"
+  },
+  "latitude": 47.90325299252497,
+  "longitude": 7.779939146165506
 }

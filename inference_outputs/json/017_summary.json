@@ -1,5 +1,119 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/017.png",
+  "id": "017",
   "pred_score": 0.6303755640983582,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Multiple linear and clustered warm signatures spread throughout the image. Notable contrast differences suggestive of both natural and potentially man-made objects. Sparse thermal points and elongated shapes are visible, likely indicating diverse object types and formations.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.15,
+          "animal": 0.1,
+          "logs": 0.7,
+          "debris": 0.2,
+          "vehicle": 0.05,
+          "tree": 0.3,
+          "other": 0.1
+        },
+        "notable_features": "Cluster of linear warm signatures with moderate thermal contrast",
+        "anomaly_reasoning": "Thermal intensity pattern suggests multiple elongated objects, possibly logs or poles"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "middle-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.25,
+          "animal": 0.2,
+          "logs": 0.6,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.4,
+          "other": 0.1
+        },
+        "notable_features": "Circular thermal signature with distinct warm inner core",
+        "anomaly_reasoning": "Shape and intensity may be indicative of a smaller clustered assembly or object, varying suggestive possibilities"
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "center",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.2,
+          "logs": 0.5,
+          "debris": 0.15,
+          "vehicle": 0.05,
+          "tree": 0.45,
+          "other": 0.15
+        },
+        "notable_features": "Dense linear structures crossing over with varying thermal signatures",
+        "anomaly_reasoning": "Overlapping linear heat signatures suggest possible logs or other elongated items"
+      },
+      {
+        "box_id": 4,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.15,
+          "logs": 0.55,
+          "debris": 0.1,
+          "vehicle": 0.05,
+          "tree": 0.5,
+          "other": 0.1
+        },
+        "notable_features": "Series of parallel lines with moderate thermal signatures",
+        "anomaly_reasoning": "Parallel arrangement and moderate thermal intensity suggest stacked logs or similar configuration"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.88898538934082,
+  "longitude": 7.801389429423146
 }

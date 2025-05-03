@@ -1,5 +1,95 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/015.png",
+  "id": "015",
   "pred_score": 0.6510468125343323,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Multiple elongated warm signatures primarily located near clustered patterns, indicating potential debris or structured objects. Sparse thermal activities throughout the rest of the image.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.15,
+          "logs": 0.6,
+          "debris": 0.5,
+          "vehicle": 0.1,
+          "tree": 0.3,
+          "other": 0.05
+        },
+        "notable_features": "Small, round thermal signature with mild temperature contrast",
+        "anomaly_reasoning": "The shape suggests debris or small logs; unlikely for person or animal"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "center-top",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.1,
+          "animal": 0.2,
+          "logs": 0.65,
+          "debris": 0.4,
+          "vehicle": 0.15,
+          "tree": 0.3,
+          "other": 0.1
+        },
+        "notable_features": "Irregularly shaped cluster with moderate heat intensity",
+        "anomaly_reasoning": "Shape and pattern are similar to stacked logs or organized debris"
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.52,
+          "logs": 0.25,
+          "debris": 0.1,
+          "vehicle": 0.3,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with clear contrast against background",
+        "anomaly_reasoning": "Thermal intensity and shape are consistent with a standing or crouched person, possibly viewed from above"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.8948486473878,
+  "longitude": 7.793972632086164
 }

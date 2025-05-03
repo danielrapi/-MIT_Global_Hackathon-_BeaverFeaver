@@ -1,5 +1,71 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/008.png",
+  "id": "008",
   "pred_score": 0.8312200307846069,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Two elongated warm signatures surrounded by cooler areas, with several narrow and long objects appearing in parallel alignment.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "center-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.3,
+          "logs": 0.8,
+          "debris": 0.5,
+          "vehicle": 0.2,
+          "tree": 0.1,
+          "other": 0.1
+        },
+        "notable_features": "Set of elongated, parallel thermal signatures, consistent with stacked or aligned objects",
+        "anomaly_reasoning": "The shape and arrangement of thermal signatures suggest a stack of long objects, possibly logs or pipes. Smaller contrasting shapes may indicate a person or animal presence within these objects."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.15,
+          "logs": 0.85,
+          "debris": 0.4,
+          "vehicle": 0.15,
+          "tree": 0.1,
+          "other": 0.1
+        },
+        "notable_features": "Cluster of elongated warm objects with significant spacing in between",
+        "anomaly_reasoning": "The arrangement and individual thermal signatures suggest more likely to be logs; however, spacing might allow for small animals to be present."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.90929491897216,
+  "longitude": 7.785454776838648
 }

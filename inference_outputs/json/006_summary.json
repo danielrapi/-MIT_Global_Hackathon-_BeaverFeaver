@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/006.png",
+  "id": "006",
   "pred_score": 0.7008923888206482,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "The image shows an area with uniform thermal signature suggesting mostly ground cover or vegetation without strong heat contrasts. One distinct, moderately warm anomaly in the bottom-right corner.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.6,
+          "animal": 0.4,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.1,
+          "tree": 0.05,
+          "other": 0.1
+        },
+        "notable_features": "Small, vertically-oriented thermal signature with moderate contrast against background.",
+        "anomaly_reasoning": "The thermal intensity and shape could indicate a person or an animal standing or crouching."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.88730973528105,
+  "longitude": 7.792034196025823
 }

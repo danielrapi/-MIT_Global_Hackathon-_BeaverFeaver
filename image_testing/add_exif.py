@@ -36,8 +36,8 @@ def write_gps_exif(image_path, lat, lon, altitude=100.0):
 
 def update_json_with_gps(image_filename, lat, lon):
     """Update the corresponding JSON file with GPS coordinates"""
-    image_number = int(os.path.splitext(image_filename)[0])
-    json_path = os.path.join("./inference_outputs/json", f"image_{image_number}_summary.json")
+    image_number = os.path.splitext(image_filename)[0]
+    json_path = os.path.join("./inference_outputs/json", f"{image_number}_summary.json")
     
     if os.path.exists(json_path):
         # Read the existing JSON

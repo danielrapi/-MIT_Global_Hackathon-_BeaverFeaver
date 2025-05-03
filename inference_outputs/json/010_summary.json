@@ -1,5 +1,71 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/010.png",
+  "id": "010",
   "pred_score": 0.9692658185958862,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Two distinct warm signatures visible, one in the top-right and another larger one in the bottom-left with high contrast against cooler surroundings.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.35,
+          "logs": 0.4,
+          "debris": 0.45,
+          "vehicle": 0.1,
+          "tree": 0.15,
+          "other": 0.05
+        },
+        "notable_features": "Small, irregularly shaped thermal signature with moderate contrast against the background",
+        "anomaly_reasoning": "Shape and size could correspond to small debris or an animal resting"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.75,
+          "animal": 0.5,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.3,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Large, vertically-oriented thermal signature with strong contrast, resembling a crouched person or animal",
+        "anomaly_reasoning": "The thermal intensity and orientation suggest the presence of a stationary person or large animal"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 1
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.903887452011546,
+  "longitude": 7.789339852116624
 }

@@ -1,5 +1,7 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/025.png",
+  "id": "025",
   "pred_score": 0.4913347661495209,
-  "pred_label": 0
+  "pred_label": 0,
+  "latitude": 47.8953326393665,
+  "longitude": 7.789507894582356
 }

@@ -1,5 +1,47 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/038.png",
+  "id": "038",
   "pred_score": 0.6188146471977234,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "The image shows a series of elongated shapes with cooler temperatures along the top-right, possibly indicating vegetation or terrain features, with scattered warmer spots in adjacent areas.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.4,
+          "animal": 0.35,
+          "logs": 0.55,
+          "debris": 0.2,
+          "vehicle": 0.2,
+          "tree": 0.65,
+          "other": 0.1
+        },
+        "notable_features": "Irregular thermal pattern with multiple cool, elongated shapes interspersed with warmer spots",
+        "anomaly_reasoning": "The thermal pattern is consistent with logs or trees, with potential for small animal presence based on scattered warmth"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.901306119316494,
+  "longitude": 7.790089450621882
 }

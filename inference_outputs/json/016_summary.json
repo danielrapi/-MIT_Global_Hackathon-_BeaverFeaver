@@ -1,5 +1,67 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/016.png",
+  "id": "016",
   "pred_score": 0.6269020438194275,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "Two main areas flagged as anomalous. The first area consists of long parallel shapes which could be logs or elongated debris. The second area includes several small, circular, warmer spots suggesting potential heat sources among bushes or trees.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "top-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree"
+        ],
+        "object_confidences": {
+          "person": 0.2,
+          "animal": 0.15,
+          "logs": 0.85,
+          "debris": 0.6,
+          "vehicle": 0.05,
+          "tree": 0.05
+        },
+        "notable_features": "Long, parallel, cool signatures likely consistent with wood or similar material",
+        "anomaly_reasoning": "Arrangement and thermal signature suggest stored logs or similar debris"
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree"
+        ],
+        "object_confidences": {
+          "person": 0.3,
+          "animal": 0.4,
+          "logs": 0.1,
+          "debris": 0.15,
+          "vehicle": 0.05,
+          "tree": 0.8
+        },
+        "notable_features": "Cluster of small, warmer signatures among cooler area, possibly indicating warm bodies or heat sources",
+        "anomaly_reasoning": "Thermal pattern suggests presence of animals or human heat signatures among foliage"
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 0
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.9091937850646,
+  "longitude": 7.814638323926269
 }

@@ -1,5 +1,95 @@
 {
-  "image_path": "/Users/ronan/Desktop/DroneHack/patchcore-detection/datasets/drone/all_test/013.png",
+  "id": "013",
   "pred_score": 0.7891488075256348,
-  "pred_label": 1
+  "pred_label": 1,
+  "annotation": {
+    "scene_description": "A notable large elongated warm signature in the center-right, potentially a vehicle. Another smaller, irregular warm signature in the bottom-left, possibly a person or related object. Sparse thermal activity elsewhere.",
+    "anomalies": [
+      {
+        "box_id": 1,
+        "approximate_location": "bottom-left",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.65,
+          "animal": 0.4,
+          "logs": 0.2,
+          "debris": 0.15,
+          "vehicle": 0.35,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Irregular, moderately warm signature with slight vertical orientation.",
+        "anomaly_reasoning": "Shape and intensity may be consistent with a crouched person or small animal."
+      },
+      {
+        "box_id": 2,
+        "approximate_location": "center-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.15,
+          "animal": 0.1,
+          "logs": 0.05,
+          "debris": 0.05,
+          "vehicle": 0.9,
+          "tree": 0.1,
+          "other": 0.05
+        },
+        "notable_features": "Large, elongated warm signature aligning with possible vehicle dimensions.",
+        "anomaly_reasoning": "Size and shape are consistent with a vehicle."
+      },
+      {
+        "box_id": 3,
+        "approximate_location": "top-right",
+        "possible_objects": [
+          "person",
+          "animal",
+          "logs",
+          "debris",
+          "vehicle",
+          "tree",
+          "other"
+        ],
+        "object_confidences": {
+          "person": 0.25,
+          "animal": 0.25,
+          "logs": 0.3,
+          "debris": 0.3,
+          "vehicle": 0.1,
+          "tree": 0.2,
+          "other": 0.05
+        },
+        "notable_features": "Small, less distinct thermal signature with moderate contrast.",
+        "anomaly_reasoning": "Could be natural elements or small debris; less likely a person or animal due to shape."
+      }
+    ],
+    "overall_objects_detected": [
+      {
+        "label": "vehicle",
+        "count": 1
+      },
+      {
+        "label": "person",
+        "count": 0
+      }
+    ],
+    "location_type": "forest"
+  },
+  "latitude": 47.89233157549815,
+  "longitude": 7.810217907377977
 }
