@@ -1,53 +1,53 @@
 import type { EnhancedDetection } from "./types"
 import { cosineSimilarity } from "./vector-utils"
+import { getEmbedding } from '../lib/openai'
 
-// Mock function to generate a simple embedding from a text query
-// In a real application, this would call an API to generate embeddings
-function generateQueryEmbedding(query: string, dimension = 768): number[] {
-  // This is a very simplistic mock that just creates a random embedding
-  // In a real application, you would use a proper embedding model
-  const embedding = new Array(dimension).fill(0)
-
-  // Seed the embedding with some values based on the query string
-  const seed = query.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0)
-  for (let i = 0; i < dimension; i++) {
-    // Generate a pseudo-random value based on the seed and position
-    embedding[i] = Math.sin(seed * (i + 1)) / 2
-  }
-
+// Generate a more meaningful embedding from a text query
+export async function generateQueryEmbedding(query: string): Promise<number[]> {
+  const embedding = await getEmbedding(query)
   return embedding
 }
 
 // Search detections using vector similarity
-export function searchByVectorSimilarity(
+export async function searchByVectorSimilarity(
   query: string,
-  detections: EnhancedDetection[],
-  topN = 3,
-): EnhancedDetection[] {
-  if (!query.trim() || detections.length === 0) {
+  detections: any[],
+  topN = 5
+): Promise<any[]> {
+  try {
+    // Filter out detections without embeddings
+    const validDetections = detections.filter(d => d.embedding && Array.isArray(d.embedding) && d.embedding.length === 1536)
+    
+    if (validDetections.length === 0) {
+      console.warn('No valid embeddings found in detections')
+      return detections.slice(0, topN)
+    }
+
+    // Generate query embedding
+    const queryEmbedding = await generateQueryEmbedding(query)
+
+    // Calculate similarities
+    
+    const similarities = validDetections.map(detection => ({
+      detection,
+      similarity: cosineSimilarity(queryEmbedding, detection.embedding)
+    }))
+
+    // Sort by similarity and get top N
+    return similarities
+      .sort((a, b) => b.similarity - a.similarity)
+      .slice(0, topN)
+      .map(item => item.detection)
+  } catch (error) {
+    console.error('Error in vector search:', error)
+    // Fallback to simple text search if vector search fails
     return detections
+      .filter(d => 
+        d.description?.toLowerCase().includes(query.toLowerCase()) ||
+        d.location?.toLowerCase().includes(query.toLowerCase())
+      )
+      .slice(0, topN)
   }
-
-  // Check if detections have embeddings
-  if (!detections[0].embedding || detections[0].embedding.length === 0) {
-    console.warn("Detections don't have embeddings, falling back to text search")
-    return textSearch(query, detections)
-  }
-
-  // Generate query embedding (in a real app, this would call an API)
-  const queryEmbedding = generateQueryEmbedding(query, detections[0].embedding.length)
-
-  // Calculate similarity scores
-  const detectionsWithScores = detections.map((detection) => ({
-    detection,
-    score: cosineSimilarity(queryEmbedding, detection.embedding),
-  }))
-
-  // Sort by similarity score (descending)
-  detectionsWithScores.sort((a, b) => b.score - a.score)
-
-  // Return top N results
-  return detectionsWithScores.slice(0, topN).map((item) => item.detection)
 }
 
 // Fallback text search function

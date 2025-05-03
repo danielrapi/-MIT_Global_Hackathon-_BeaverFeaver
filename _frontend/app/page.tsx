@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { MapContainer } from "./components/map-container"
 import { Sidebar } from "./components/sidebar"
 import { Toaster } from "@/components/ui/toaster"
@@ -28,11 +28,11 @@ export default function Home() {
     setIsDetailOpen(true)
   }
 
-  const handleDataLoaded = (data: EnhancedDetection[]) => {
-    setAllDetections(data)
-    setFilteredDetections(data)
+  const handleDataLoaded = useCallback((data: EnhancedDetection[]) => {
+    setAllDetections((prev) => [...prev, ...data])
+    setFilteredDetections((prev) => [...prev, ...data])
     setDataJustLoaded(true)
-  }
+  }, [])
 
   const handleMapFitted = () => {
     setDataJustLoaded(false)

@@ -1,5 +1,7 @@
 // Calculate cosine similarity between two vectors
 export function cosineSimilarity(vecA: number[], vecB: number[]): number {
+  console.log("vecA", vecA.length)
+  console.log("vecB", vecB.length)
   if (vecA.length !== vecB.length) {
     throw new Error("Vectors must have the same length")
   }

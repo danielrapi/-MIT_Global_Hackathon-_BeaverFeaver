@@ -23,12 +23,19 @@ export function Sidebar({ onSelectDetection, onFilteredDetectionsChange, onDataL
   const [allDetections, setAllDetections] = useState<EnhancedDetection[]>([])
   const [filteredDetections, setFilteredDetections] = useState<EnhancedDetection[]>([])
   const [hasData, setHasData] = useState(false)
+  const [resetSignal, setResetSignal] = useState(0)
+  const [mapResetKey, setMapResetKey] = useState(0)
 
   // Reset filters function
   const resetFilters = () => {
     setMinScore(0)
     setSearchQuery("")
-    setFilteredDetections(allDetections)
+    setFilteredDetections([...allDetections])
+    setResetSignal((s) => s + 1)
+    setMapResetKey((k) => k + 1)
+    if (onFilteredDetectionsChange) {
+      onFilteredDetectionsChange([...allDetections])
+    }
   }
 
   // Handle data loading
@@ -53,32 +60,40 @@ export function Sidebar({ onSelectDetection, onFilteredDetectionsChange, onDataL
     // First filter by score
     let filtered = allDetections.filter((detection) => detection.anomalyScore >= minScore)
 
-    // Then apply search if there's a query
-    if (searchQuery.trim()) {
-      filtered = searchByVectorSimilarity(searchQuery, filtered, 3)
-    }
-
     setFilteredDetections(filtered)
 
     // Notify parent component about filtered detections
     if (onFilteredDetectionsChange) {
       onFilteredDetectionsChange(filtered)
     }
-  }, [minScore, searchQuery, allDetections, onFilteredDetectionsChange, hasData])
+  }, [minScore, allDetections, onFilteredDetectionsChange, hasData])
 
-  // Simulate search with a delay to mimic real-world behavior
-  useEffect(() => {
-    if (!hasData || !searchQuery.trim()) {
+  // Handle search submission
+  const handleSearch = async (query: string) => {
+    if (!hasData || !query.trim()) {
       return
     }
 
     setIsSearching(true)
-    const timer = setTimeout(() => {
-      setIsSearching(false)
-    }, 300)
+    try {
+      // First filter by score
+      let filtered = allDetections.filter((detection) => detection.anomalyScore >= minScore)
+      
+      // Then apply search if there's a query
+      filtered = await searchByVectorSimilarity(query, filtered, 5)
 
-    return () => clearTimeout(timer)
-  }, [searchQuery, hasData])
+      setFilteredDetections(filtered)
+
+      // Notify parent component about filtered detections
+      if (onFilteredDetectionsChange) {
+        onFilteredDetectionsChange(filtered)
+      }
+    } catch (error) {
+      console.error('Error during search:', error)
+    } finally {
+      setIsSearching(false)
+    }
+  }
 
   return (
     <div className="w-80 border-r bg-background flex flex-col h-full">
@@ -100,9 +115,11 @@ export function Sidebar({ onSelectDetection, onFilteredDetectionsChange, onDataL
           <SearchBox
             value={searchQuery}
             onChange={setSearchQuery}
+            onSearch={handleSearch}
             isSearching={isSearching}
             placeholder="Search by keywords, tags..."
             disabled={!hasData}
+            resetSignal={resetSignal}
           />
           <ScoreSlider value={minScore} onChange={setMinScore} disabled={!hasData} />
         </div>

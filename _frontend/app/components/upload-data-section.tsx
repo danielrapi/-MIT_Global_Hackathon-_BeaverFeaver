@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ChevronUp, ChevronDown, Upload, Database, Loader2 } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { cn } from "@/lib/utils"
-import { loadTestData } from "@/app/data/test-data"
+import { loadTestData, enhanceDetection } from "@/app/data/test-data"
 
 interface UploadDataSectionProps {
   onDataLoaded?: (data: EnhancedDetection[]) => void
@@ -54,6 +54,53 @@ export function UploadDataSection({ onDataLoaded }: UploadDataSectionProps) {
     }
   }
 
+  // Helper to handle the upload and response
+  const handleImageUpload = async (file: File) => {
+    setIsLoading(true)
+    try {
+      const formData = new FormData()
+      formData.append('image', file)
+
+      // Call your Python endpoint
+      const res = await fetch('http://localhost:8000/upload_image', {
+        method: 'POST',
+        body: formData,
+      })
+      console.log("res", res)
+      if (!res.ok) throw new Error('Failed to upload image')
+      const data = await res.json()
+      console.log("data", data)
+      // Assume data.detection is a RawDetection, enhance it
+      const enhanced = enhanceDetection(data.detection)
+      if (data.images) {
+        // Always treat as base64 data URLs
+        const imageUrls: any = {}
+        for (const key of ["normal", "marked", "heatmap"]) {
+          const img = data.images[key]
+          imageUrls[key] = img && img.startsWith("data:image") ? img : "/placeholder.svg"
+        }
+        (enhanced as any).imageUrls = imageUrls
+      }
+      if (onDataLoaded) {
+        onDataLoaded([enhanced])
+      }
+
+      toast({
+        title: 'Upload successful',
+        description: 'New detection added.',
+      })
+    } catch (error) {
+      console.error('Error uploading image:', error)
+      toast({
+        title: 'Upload failed',
+        description: error instanceof Error ? error.message : 'An error occurred during upload.',
+        variant: 'destructive',
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -70,16 +117,9 @@ export function UploadDataSection({ onDataLoaded }: UploadDataSectionProps) {
     e.preventDefault()
     e.stopPropagation()
     setIsDragging(false)
-
-    // Handle file upload logic here
     const files = Array.from(e.dataTransfer.files)
-    console.log("Files dropped:", files)
-
     if (files.length > 0) {
-      toast({
-        title: "Files received",
-        description: `Received ${files.length} file(s)`,
-      })
+      handleImageUpload(files[0])
     }
   }
 
@@ -126,13 +166,8 @@ export function UploadDataSection({ onDataLoaded }: UploadDataSectionProps) {
                   accept="image/*"
                   onChange={(e) => {
                     const files = Array.from(e.target.files || [])
-                    console.log("Files selected:", files)
-
                     if (files.length > 0) {
-                      toast({
-                        title: "Files selected",
-                        description: `Selected ${files.length} file(s)`,
-                      })
+                      handleImageUpload(files[0])
                     }
                   }}
                 />

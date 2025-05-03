@@ -18,8 +18,8 @@ export function HoverPreview({ detection }: HoverPreviewProps) {
 
   return (
     <div className="relative">
-      <Card className="w-72 shadow-lg overflow-hidden">
-        <div className="relative w-full h-40">
+      <Card className="w-56 shadow-lg overflow-hidden">
+        <div className="relative w-full h-56">
           <Image
             src={imagePaths.normal || "/placeholder.svg"}
             alt="Anomaly preview"

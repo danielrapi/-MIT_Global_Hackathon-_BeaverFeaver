@@ -1,4 +1,5 @@
 import type { EnhancedDetection, RawDetection } from "./types"
+import { searchByVectorSimilarity } from "./vector-search"
 
 // Function to load a single JSON file
 async function loadJsonFile(id: string): Promise<RawDetection | null> {
@@ -15,7 +16,7 @@ async function loadJsonFile(id: string): Promise<RawDetection | null> {
 }
 
 // Function to convert RawDetection to EnhancedDetection
-function enhanceDetection(raw: RawDetection): EnhancedDetection {
+export function enhanceDetection(raw: RawDetection): EnhancedDetection {
   return {
     id: raw.id,
     anomalyScore: raw.pred_score,
@@ -37,7 +38,10 @@ function enhanceDetection(raw: RawDetection): EnhancedDetection {
 }
 
 // Function to get image paths for a detection
-export function getImagePaths(detection: EnhancedDetection): { normal: string; marked: string; heatmap: string } {
+export function getImagePaths(detection: EnhancedDetection & { imageUrls?: any }): { normal: string; marked: string; heatmap: string } {
+  if (detection.imageUrls) {
+    return detection.imageUrls
+  }
   const basePath = `/test_data/images copy/${detection.id}`
   return {
     normal: `${basePath}/${detection.id}_image.png`,
@@ -64,7 +68,6 @@ export async function loadTestData(): Promise<EnhancedDetection[]> {
 }
 
 // Function to perform vector search
-export function vectorSearch(query: string, detections: EnhancedDetection[], topN = 3): EnhancedDetection[] {
-  // This is a placeholder - you might want to implement actual vector search
-  return detections.slice(0, topN)
+export async function vectorSearch(query: string, detections: EnhancedDetection[], topN = 3): Promise<EnhancedDetection[]> {
+  return searchByVectorSimilarity(query, detections, topN)
 } 
