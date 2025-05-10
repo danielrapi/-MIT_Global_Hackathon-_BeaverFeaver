@@ -62,7 +62,7 @@ export function UploadDataSection({ onDataLoaded }: UploadDataSectionProps) {
       formData.append('image', file)
 
       // Call your Python endpoint
-      const res = await fetch('http://localhost:8000/upload_image', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_image`, {
         method: 'POST',
         body: formData,
       })
