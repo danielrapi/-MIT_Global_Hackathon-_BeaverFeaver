@@ -4,3 +4,8 @@ _frontend/node_modules/
 backend/interaction/inference_outputs/*
 backend/interaction/uploads/*
 backend/patchcore/drone_testing/latest/images/*
+uploads/*
+./uploads
+
+inference_outputs/*
+results/*
