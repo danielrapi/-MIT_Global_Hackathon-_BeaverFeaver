@@ -1,13 +1,11 @@
-import argparse
 from pathlib import Path
 import json
+import shutil
 from utils.inference_utils import save_prediction_outputs
 from utils.exif_utils import extract_gps_from_exif_or_generate
-from utils.llm_utils import annotate_picture, get_embedding_from_annotation
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 from anomalib.data import PredictDataset
-import shutil
 
 engine = Engine()
 model = Patchcore(
