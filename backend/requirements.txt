@@ -43,3 +43,6 @@ open_clip_torch==2.24.0
 
 #kornia
 kornia==0.7.2
+
+#openvino
+openvino==2023.3.0
