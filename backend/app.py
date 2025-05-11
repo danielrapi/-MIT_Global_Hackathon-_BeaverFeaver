@@ -68,7 +68,7 @@ async def upload_image(file: UploadFile = File(None), image: UploadFile = File(N
         mask_base64 = encode_image_to_base64(Path(result["mask_path"]))
         heatmap_base64 = encode_image_to_base64(Path(result["heat_map_path"]))
         normal_base64 = encode_image_to_base64(Path(result["image_path"]))
-        
+
         return {
             "message": "File processed successfully",
             "filename": unique_filename,

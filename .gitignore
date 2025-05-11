@@ -9,3 +9,4 @@ uploads/*
 
 inference_outputs/*
 results/*
+__data_dump__/*
