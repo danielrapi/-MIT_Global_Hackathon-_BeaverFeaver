@@ -3,6 +3,7 @@ import json
 import shutil
 from utils.inference_utils import save_prediction_outputs
 from utils.exif_utils import extract_gps_from_exif_or_generate
+from utils.llm_utils import annotate_picture, get_embedding_from_annotation
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 from anomalib.data import PredictDataset
@@ -15,7 +16,8 @@ model = Patchcore(
     coreset_sampling_ratio=0.1,
     num_neighbors=9,
 )
-checkpoint_path = Path("backend/patchcore/drone/v25/weights/lightning/model.ckpt")
+
+checkpoint_path = Path(__file__).parent / "patchcore/drone/v25/weights/lightning/model.ckpt"
 print(f"🔍 Loading checkpoint from {checkpoint_path}")
 
 def run_pipeline(image_path: Path, output_dir: str):

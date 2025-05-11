@@ -6,6 +6,7 @@ import uuid
 import os
 import base64
 from process_pipeline import run_pipeline
+import uvicorn
 
 app = FastAPI(title="Anomaly Detection API")
 
